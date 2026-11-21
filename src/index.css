@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-night font-body text-cream antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-caramel text-night;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-caramel;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-7 py-3 font-bold transition duration-300 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply bg-caramel text-night hover:bg-cream hover:shadow-[0_0_30px_rgba(232,169,77,0.5)];
+  }
+
+  .btn-ghost {
+    @apply border border-caramel/60 text-caramel hover:bg-caramel hover:text-night;
+  }
+
+  .section {
+    @apply mx-auto max-w-6xl px-5 py-20 md:py-28;
+  }
+
+  .gold-text {
+    @apply bg-clip-text text-transparent animate-shimmer;
+    background-image: linear-gradient(90deg, #E8A94D, #F6E7D2, #E8A94D);
+    background-size: 200% 100%;
+  }
+}
